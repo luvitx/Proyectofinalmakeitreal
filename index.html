@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@300;400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="NextQuestion(0)">
+    <main>
+        <div class="video-container">
+            <video autoplay muted loop id="video-background">
+                <source src="./img/White and Orange Simple Astronaut Quiz Tiktok Video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="game-quiz-container">
+            <div class="game-details-container">
+                <h1>Puntuación : <span id="player-score"></span> / 10</h1>
+                <h1> Preguntas : <span id="question-number"></span> / 10</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+            </div>
+
+            <div class="next-button-container">
+                <button id="next-button" onclick="handleNextQuestion()">Proxima Pregunta</button>
+            </div>
+        </div>
+
+        <div class="modal-container" id="score-modal">
+            <div class="modal-content-container">
+                <span class="close" onclick="closeScoreModal()">&times;</span>
+                <h1>Resultado del juego</h1>
+                <div class="grade-details">
+                    <p id="remarks"></p>
+                    <p>Calificación: <span id="grade-percentage"></span>%</p>
+                    <p>Respuestas Correctas: <span id="right-answers"></span></p>
+                    <p>Respuestas Incorrectas: <span id="wrong-answers"></span></p>
+                </div>
+                <div class="modal-button-container">
+                    <button id="score-modal-button"  onclick="resetGame()">Volver a Jugar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
